@@ -1,123 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Princess Day! 👑</title>
+    <title>For My Princess Pari 💗</title>
+
     <style>
         body {
-            background: #ffd8f0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(#ffd6eb, #ffe9f7);
+            padding: 20px;
             margin: 0;
-            font-family: "Comic Sans MS", cursive;
             text-align: center;
-            overflow-x: hidden;
+            animation: bgfade 6s infinite alternate;
         }
 
-        /* GOLDEN GLOWING CROWN */
-        .crown {
-            font-size: 4rem;
+        @keyframes bgfade {
+            from { background-color: #ffd6eb; }
+            to   { background-color: #ffe1f4; }
+        }
+
+        .page {
+            display: none;
+            max-width: 700px;
+            margin: auto;
+            margin-top: 40px;
+            padding: 25px;
+            background: #ffffffcc;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px #ffb7db;
+            animation: float 4s ease-in-out infinite;
+            line-height: 1.7;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        h1, h2 {
+            color: #d63384;
+            text-shadow: 0 0 10px #ff8ac9;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 8px #ffa9d9; }
+            to   { text-shadow: 0 0 18px #ff2fa7; }
+        }
+
+        .btn {
+            display: block;
+            margin: 15px auto;
+            padding: 14px 25px;
+            width: 250px;
+            border: none;
+            border-radius: 30px;
+            background: #ff7fbd;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 6px 15px #ffb5d9;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .btn:hover {
+            background: #ff4fa8;
+            transform: scale(1.05);
+        }
+
+        .back-btn {
             margin-top: 25px;
-            color: #ffd700;
-            text-shadow:
-                0 0 10px #ffea75,
-                0 0 20px #ffd700,
-                0 0 35px #ffef9a,
-                0 0 50px #ffe45c;
-            animation: crownGlow 2s infinite alternate ease-in-out;
+            padding: 12px 20px;
+            background: #ff7fbd;
+            border: none;
+            color: white;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 6px 15px #ffb5d9;
         }
 
-        @keyframes crownGlow {
-            0% {
-                text-shadow:
-                    0 0 5px #ffea75,
-                    0 0 10px #ffd700,
-                    0 0 20px #ffe45c;
-            }
-            100% {
-                text-shadow:
-                    0 0 20px #ffea75,
-                    0 0 40px #ffd700,
-                    0 0 70px #ffe45c,
-                    0 0 90px #fff5b3;
-            }
-        }
-
-        h1 {
-            color: #ff4fa1;
-            font-size: 3.2rem;
-            margin-top: 10px;
-            text-shadow: 2px 2px white;
-            animation: pop 1.5s ease-in-out infinite alternate;
-        }
-
-        @keyframes pop {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.07); }
-        }
-
-        .note {
-            background: white;
-            display: inline-block;
-            padding: 20px 30px;
-            margin-top: 20px;
-            border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(255, 0, 128, 0.3);
-            color: #ff2b88;
-            max-width: 500px;
-            font-size: 1.3rem;
-            line-height: 1.5;
-        }
-
-        .sparkle {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: gold;
-            border-radius: 50%;
-            animation: sparkle 3s linear infinite;
-            opacity: 0.7;
-        }
-
-        @keyframes sparkle {
-            0% { transform: translateY(0) scale(1); opacity: 1; }
-            100% { transform: translateY(800px) scale(0.5); opacity: 0; }
+        .back-btn:hover {
+            background: #ff4fa8;
         }
     </style>
+
 </head>
 <body>
 
-    <!-- Background Music -->
-    <audio autoplay loop>
-        <source src="music.mp3" type="audio/mpeg">
-        Your browser does not support audio.
-    </audio>
+<!-- Auto Background Music -->
+<audio id="bgmusic" autoplay loop playsinline muted>
+    <source src="your-music-file.mp3" type="audio/mp3">
+</audio>
 
-    <!-- GOLDEN GLOWING CROWN -->
-    <div class="crown">👑</div>
+<!-- HOME PAGE -->
+<div id="home" class="page" style="display: block;">
+    <h1>💗 Welcome My Princess Pari 💗</h1>
 
-    <h1>
-        💖 Happy Princess Day! 👑
-    </h1>
+    <button class="btn" onclick="showPage('note')">💌 Cute Note</button>
+    <button class="btn" onclick="showPage('wish')">👑 Princess Day Wish</button>
+    <button class="btn" onclick="showPage('proposal')">💘 Cute Proposal</button>
+</div>
 
-    <div class="note">
-        ✨💗 <b>Dear Princess,</b><br><br>
-        Today is a day made especially for you — full of sparkles, sweetness, and magic.  
-        May your smile shine brighter than the stars and your heart glow like the sun.  
-        You are cherished, adored, and truly enchanting. 👑🌸💞  
-        <br><br>
-        <b>Happy Princess Day!</b> 🌟💐
-    </div>
+<!-- NOTE PAGE -->
+<div id="note" class="page">
+    <h2>💌 Ek Cute Si Note, Sirf Pari Ke Liye 💕</h2>
+    <p>
+        Hey Pari, 🌷😄<br><br>
+        Pata hai? Aaj Princess Day hai… agar maine message nahi bheja toh
+        universe mujhe “crush ka worst fan” award de deta. 😂👑<br><br>
 
-    <script>
-        // Falling sparkles
-        for (let i = 0; i < 40; i++) {
-            let s = document.createElement("div");
-            s.className = "sparkle";
-            s.style.left = Math.random() * window.innerWidth + "px";
-            s.style.animationDelay = Math.random() * 3 + "s";
-            document.body.appendChild(s);
+        Tu itni sweet ho ki chocolate bhi retire ho jaaye. 🍫😌<br><br>
+
+        Teri smile ka effect — mood +100, tension -100. 📶💗
+    </p>
+    <button class="back-btn" onclick="showPage('home')">⬅ Back</button>
+</div>
+
+<!-- WISH PAGE -->
+<div id="wish" class="page">
+    <h2>👑✨ Happy Princess Day, Pari! ✨👑</h2>
+    <p>
+        Aaj ka din officially tum jaise logon ke liye hota hai — jo bina effort ke
+        duniya ko pretty aur bright bana dete hain. 🌸💗<br><br>
+
+        Happy Princess Day to the sweetest, funniest, accidental-heart-stealer
+        princess — <strong>YOU</strong>! 👸💞
+    </p>
+    <button class="back-btn" onclick="showPage('home')">⬅ Back</button>
+</div>
+
+<!-- PROPOSAL PAGE -->
+<div id="proposal" class="page">
+    <h2>💘 Cute Proposal for My Pari 😳💕</h2>
+    <p>
+        Dekho Pari… agar tumhe theek lage,<br>
+        toh main tumhe thoda sa zyada pasand karna chahta hoon. 😄💘<br><br>
+
+        Bas itna puch raha hoon — 
+        <strong>kya main tumhari life mein “thoda-extra-special” wala spot le sakta hoon?</strong> 😉💗<br><br>
+
+        Pressure zero. Feeling 100. Vibe = cute. 😌💞
+    </p>
+
+    <button class="btn" onclick="showPage('yesPage')">💗 YES</button>
+
+    <button class="btn" id="noBtn"
+        onmouseover="moveNoButton()"
+        onmousedown="moveNoButton()">
+        ❌ NO
+    </button>
+
+    <button class="back-btn" onclick="showPage('home')">⬅ Back</button>
+</div>
+
+<!-- YES PAGE -->
+<div id="yesPage" class="page">
+    <h2>💖 Yaaay Pari! 💖</h2>
+    <p>
+        Tumne YES bola!! 😳💗<br><br>
+        Ab officially tum meri favorite person ho. 🫶✨<br>
+        Thanks for making my whole day, whole week, whole everything! 💞
+    </p>
+    <button class="back-btn" onclick="showPage('home')">⬅ Back</button>
+</div>
+
+<script>
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(page => {
+            page.style.display = "none";
+        });
+        document.getElementById(pageId).style.display = "block";
+    }
+
+    // Auto-play fix for mobile:
+    document.addEventListener("click", function() {
+        const audio = document.getElementById("bgmusic");
+        if (audio.muted) {
+            audio.muted = false;
+            audio.play();
         }
-    </script>
+    });
+
+    // NO button movement
+    function moveNoButton() {
+        const noBtn = document.getElementById("noBtn");
+        const x = Math.random() * 200 - 100;
+        const y = Math.random() * 200 - 100;
+        noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+</script>
 
 </body>
 </html>
